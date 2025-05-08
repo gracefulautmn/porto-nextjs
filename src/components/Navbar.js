@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between">
         <Link
           href="/"
-          className={`font-bold text-3xl transition-all text-opacity-100 opacity-100 duration-300 hover:underline-offset-4 hover:underline text-black decoration-2 decoration-black-200 ${
+          className={`font-bold text-3xl transition-all text-opacity-100 opacity-100 duration-300 text-black decoration-2 decoration-black-200 ${
             pathname === '/' ? 'font-medium' : ''
           }`}
         >
