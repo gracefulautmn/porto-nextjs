@@ -6,7 +6,7 @@ import { FaInstagram, FaGithub, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 const Footer = () => {
 
   return (
-    <footer className="w-full px-4 lg:w-1/2 mx-auto py-8 text-xs text-gray-500 text-center border-t border-gray-200 flex flex-col items-center justify-center" style={{ backgroundColor: '#E4E0E1' }}>
+    <footer className="w-full px-4 lg:w-1/2 mx-auto py-8 text-xs text-opacity-100 opacity-100 text-gray-500 text-center border-t border-gray-200 flex flex-col items-center justify-center" style={{ backgroundColor: '#E4E0E1' }}>
       <div className="mb-4 mr-100 md:mr-180">
         <Link href="/" className="font-bold text-3xl">
           code with nizar

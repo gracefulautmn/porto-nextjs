@@ -5,7 +5,6 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 const Layout = ({ children }) => {
-  const currentYear = new Date().getFullYear();
 
   return (
     <div className="min-h-screen flex flex-col items-center" style={{ backgroundColor: '#E9EFEC' }}>
