@@ -21,7 +21,7 @@ const ProfileSection = () => {
                 />
             )}
         </div>
-        <h2 className="text-3xl font-bold section-heading">PROFILE</h2>
+        <h2 className="text-xl text-black opacity-100 text-opacity-100 font-bold section-heading">PROFILE</h2>
         <div className="prose max-w-none mt-4">
           <p className="text-lg leading-relaxed text-gray-700">{profileData.bio}</p>
         </div>

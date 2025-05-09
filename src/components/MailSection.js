@@ -48,7 +48,7 @@ const MailSection = () => {
     <section className="py-16 bg-transparent">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div className="max-w-lg">
-          <h2 className="text-3xl font-semibold mb-6">CONTACT ME!!</h2>
+          <h2 className="text-xl text-black opacity-100 text-opacity-100 font-semibold mb-6">CONTACT ME</h2>
           <p className="mb-8 text-gray-700 text-lg">
           Have questions or want to discuss? Please send us a message via the form below.
           </p>

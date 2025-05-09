@@ -6,7 +6,7 @@ import educationData from '../data/educationData';
 const EducationSection = () => {
   return (
     <section id="education" className="section-container mt-16">
-      <h2 className="text-xl section-heading font-bold">EDUCATION</h2> {/* Ukuran heading 2xl, sebelumnya xl */}
+      <h2 className="text-xl text-black opacity-100 text-opacity-100 section-heading font-bold">EDUCATION</h2> {/* Ukuran heading 2xl, sebelumnya xl */}
 
       <div className="space-y-8 mt-8">
         {educationData.map((education, index) => (

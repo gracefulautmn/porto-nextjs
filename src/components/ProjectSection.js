@@ -11,7 +11,7 @@ const ProjectSection = ({ limit = 3  }) => {
   
   return (
     <section id="project" className="mt-16 section-container">
-      <h2 className=" text-3xl font-bold section-heading">PROJECT</h2>
+      <h2 className=" text-xl text-black opacity-100 text-opacity-100 font-bold section-heading">PROJECT</h2>
       
       {/* Zigzag layout for projects */}
       <div className="mt-8 space-y-6">
