@@ -3,7 +3,7 @@ const projectsData = [
     id: 1,
     title: "E-litera",
     description: "An online learning website that provides a variety of quality courses to support skill development in the digital era. With a user-friendly interface, learners can access learning materials anytime and anywhere. Supported by experienced mentors and curriculum relevant to industry needs.",
-    image: "/images/violie.png",
+    image: "/images/elitera.png",
     color: "bg-accent-red",
     category: "web",
     link: "https://github.com/nizarafham/elitera"
