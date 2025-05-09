@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {
-  SiHtml5, SiCss3, SiJavascript, SiPhp, SiPython, SiJava, SiDart,
+  SiJavascript, SiPhp, SiPython, SiJava, SiDart, SiCplusplus,
   SiTailwindcss, SiLaravel, SiFlutter, SiVuedotjs, SiSupabase, SiDjango, SiNextdotjs,
   SiMysql, SiPostgresql, SiPostman, SiGithub
 } from 'react-icons/si';
@@ -10,19 +10,17 @@ import {
 const TechnologiesSection = () => {
   const technologies = {
     'Programming Languages': [
-      { name: 'HTML5', icon: <SiHtml5 /> },
-      { name: 'CSS3', icon: <SiCss3 /> },
       { name: 'JavaScript', icon: <SiJavascript /> },
       { name: 'PHP', icon: <SiPhp /> },
       { name: 'Python', icon: <SiPython /> },
       { name: 'Dart', icon: <SiDart /> },
+      { name: 'C++', icon: <SiCplusplus /> },
     ],
     'Frameworks': [
       { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
       { name: 'Laravel', icon: <SiLaravel /> },
       { name: 'Flutter', icon: <SiFlutter /> },
       { name: 'Vue.js', icon: <SiVuedotjs /> },
-      { name: 'Supabase', icon: <SiSupabase /> },
       { name: 'Django', icon: <SiDjango /> },
       { name: 'Next.js', icon: <SiNextdotjs /> },
     ],
@@ -31,18 +29,18 @@ const TechnologiesSection = () => {
       { name: 'PostgreSQL', icon: <SiPostgresql /> },
       { name: 'Postman', icon: <SiPostman /> },
       { name: 'GitHub', icon: <SiGithub /> },
+      { name: 'Supabase', icon: <SiSupabase /> },
     ]
   };
 
   const getHoverColorClass = (name) => {
     switch (name.toLowerCase()) {
-      case 'html5': return 'group-hover:text-orange-600';
-      case 'css3': return 'group-hover:text-blue-600';
       case 'javascript': return 'group-hover:text-yellow-400';
       case 'php': return 'group-hover:text-indigo-600';
       case 'python': return 'group-hover:text-blue-400';
       case 'java': return 'group-hover:text-red-700';
       case 'dart': return 'group-hover:text-sky-600';
+      case 'c++': return 'group-hover:text-purple-600';
       case 'tailwind css': return 'group-hover:text-teal-400';
       case 'laravel': return 'group-hover:text-red-600';
       case 'flutter': return 'group-hover:text-sky-400';
