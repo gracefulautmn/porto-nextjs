@@ -15,7 +15,7 @@ const projectsData = [
     image: "/images/violie.png",
     color: "bg-accent-red",
     category: "web",
-    link: "https://violie.vercel.app/"
+    link: "https://github.com/gracefulautmn/himpunan-votingapp"
   },
   {
     id: 3,
@@ -28,31 +28,22 @@ const projectsData = [
   },
   {
     id: 4,
-    title: "Project 4",
-    description: "Lorem ipsum dolorem",
-    image: "/images/placeholder.jpg",
+    title: "Pocket Book!",
+    description: "Financial management app. Designed to help you track every money that goes out, this app provides a clear picture of where your money is going, empowering you to make better financial decisions.",
+    image: "/images/pocketbook.png",
     color: "bg-accent-red",
     category: "mobile",
-    link: "https://example.com/project-4"
+    link: "https://github.com/nizarafham/manage-money"
   },
   {
     id: 5,
-    title: "Project 5",
-    description: "Lorem ipsum dolorem",
-    image: "/images/placeholder.jpg",
+    title: "Finsweet",
+    description: "Developed a blog website using Laravel, including article routing, categories, and login system. Implementing UI based on the design provided in Figma.",
+    image: "/images/finsweet.png",
     color: "bg-accent-red",
     category: "web",
-    link: "https://example.com/project-5"
+    link: "https://github.com/nizarafham/tht-web-finsweet"
   },
-  {
-    id: 6,
-    title: "Project 6",
-    description: "Lorem ipsum dolorem",
-    image: "/images/placeholder.jpg",
-    color: "bg-accent-red",
-    category: "mobile",
-    link: "https://example.com/project-6"
-  }
 ];
 
 export default projectsData;

@@ -36,7 +36,7 @@ const ProjectSection = ({ limit = 3  }) => {
       <div className="mt-6 text-center">
         <Link 
           href="/projects" 
-          className="text-lg inline-block hover:underline"
+          className="text-lg text-black opacity-100 text-opacity-100 inline-block hover:text-gray-700 transition duration-300 ease-in-out"
         >
           see more project
         </Link>

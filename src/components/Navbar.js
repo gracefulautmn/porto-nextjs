@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image'; // Still unused, can be removed if not needed.
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FileText, Menu, X } from 'lucide-react';
@@ -96,7 +95,7 @@ const Navbar = () => {
             Projects
           </Link>
 
-          <a
+          {/* <a
             href="/resume-eng.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -105,7 +104,7 @@ const Navbar = () => {
           >
             <FileText size={16} className="mr-1" />
             Resume
-          </a>
+          </a> */}
         </nav>
       </div>
     </header>

@@ -18,27 +18,30 @@ export default function Projects() {
       <section className="section-container">
         <h1 className="section-heading">All Projects</h1>
 
+        {/* Container untuk tombol kategori, flex dengan gap */}
         <div className="flex gap-4 mt-4">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded ${
+              // Mengubah kelas untuk styling text-only dengan underline
+              className={`text-black hover:underline ${ // teks hitam, hover underline
                 selectedCategory === category
-                  ? 'bg-black text-white'
-                  : 'bg-gray-200 text-black'
+                  ? 'underline font-semibold' // underline & lebih tebal jika terpilih
+                  : ''
               }`}
             >
-              {category.toUpperCase()}
+              {/* Menggunakan capitalize untuk tampilan lebih baik, bisa juga toUpperCase() */}
+              {category.charAt(0).toUpperCase() + category.slice(1)}
             </button>
           ))}
         </div>
 
         <div className="mt-8 flex flex-col gap-6">
-  {filteredProjects.map((project) => (
-    <ProjectCard key={project.id} project={project} layout="horizontal" />
-  ))}
-</div>
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} layout="horizontal" />
+          ))}
+        </div>
       </section>
     </Layout>
   );

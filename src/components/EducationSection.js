@@ -12,9 +12,9 @@ const EducationSection = () => {
         {educationData.map((education, index) => (
           <div key={index} className="grid grid-cols-3 gap-6">
             <div className="col-span-1">
-              <h3 className="text-lg font-medium">{education.degree}</h3> {/* Diubah dari text-sm ke text-base */}
+              <h3 className="text-lg text-black opacity-100 text-opacity-100 font-medium">{education.degree}</h3> {/* Diubah dari text-sm ke text-base */}
               <p className="text-lg text-gray-500">{education.period}</p> {/* Diubah dari text-xs ke text-sm */}
-              <p className="text-lg mt-1">{education.institution}</p> {/* Diubah dari text-xs ke text-sm */}
+              <p className="text-lg text-black opacity-100 text-opacity-100 mt-1">{education.institution}</p> {/* Diubah dari text-xs ke text-sm */}
             </div>
 
             <div className="col-span-2">
