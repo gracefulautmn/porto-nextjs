@@ -29,7 +29,7 @@ return (
       />
     </div>
     <div className="mt-2">
-      <Link href={project.link} target="_blank" className="text-xl font-semibold hover:underline">
+      <Link href={project.link} target="_blank" className="text-xl text-black font-semibold hover:underline">
         {project.title}
       </Link>
       <p className="text-lg text-gray-500">{project.description}</p>
