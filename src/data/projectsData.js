@@ -50,7 +50,7 @@ const projectsData = [
     description: "An innovative digital platform designed to modernize and simplify the lost and found system. The project aims to replace inefficient manual processes with a smart, centralized, and secure mobile application. Olivia's key advantage is its unique QR Code-based claim system, which enables instant, secure and paperless verification and handover of items.",
     image: "/images/olivia.png",
     color: "bg-accent-red",
-    category: "app",
+    category: "mobile",
     link: "https://github.com/gracefulautmn/olivia"
   },
   {
@@ -59,7 +59,7 @@ const projectsData = [
     description: "A simple app project designed to be a quick, accessible and informative tool. The app aims to help users calculate and understand two important health metrics: Body Mass Index (BMI) and Ideal Body Weight (IBW). With an intuitive interface, users can quickly input personal data and get easy-to-understand results.",
     image: "/images/ibmi.png",
     color: "bg-accent-red",
-    category: "app",
+    category: "mobile",
     link: "https://github.com/nizarafham/ibmi-app"
   },
 ];
