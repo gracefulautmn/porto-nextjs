@@ -1,8 +1,8 @@
-// components/TechnologiesSection.js
+'use client';
 
 import React from 'react';
 import {
-  SiJavascript, SiPhp, SiPython, SiJava, SiDart, SiCplusplus,
+  SiJavascript, SiPhp, SiPython, SiDart, SiCplusplus,
   SiTailwindcss, SiLaravel, SiFlutter, SiVuedotjs, SiSupabase, SiDjango, SiNextdotjs,
   SiMysql, SiPostgresql, SiPostman, SiGithub
 } from 'react-icons/si';
@@ -10,73 +10,51 @@ import {
 const TechnologiesSection = () => {
   const technologies = {
     'Programming Languages': [
-      { name: 'JavaScript', icon: <SiJavascript /> },
-      { name: 'PHP', icon: <SiPhp /> },
-      { name: 'Python', icon: <SiPython /> },
-      { name: 'Dart', icon: <SiDart /> },
-      { name: 'C++', icon: <SiCplusplus /> },
+      { name: 'JavaScript', icon: <SiJavascript />, hoverClass: 'group-hover:text-yellow-400' },
+      { name: 'PHP', icon: <SiPhp />, hoverClass: 'group-hover:text-indigo-600' },
+      { name: 'Python', icon: <SiPython />, hoverClass: 'group-hover:text-blue-400' },
+      { name: 'Dart', icon: <SiDart />, hoverClass: 'group-hover:text-sky-600' },
+      { name: 'C++', icon: <SiCplusplus />, hoverClass: 'group-hover:text-purple-600' },
     ],
     'Frameworks': [
-      { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
-      { name: 'Laravel', icon: <SiLaravel /> },
-      { name: 'Flutter', icon: <SiFlutter /> },
-      { name: 'Vue.js', icon: <SiVuedotjs /> },
-      { name: 'Django', icon: <SiDjango /> },
-      { name: 'Next.js', icon: <SiNextdotjs /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss />, hoverClass: 'group-hover:text-teal-400' },
+      { name: 'Laravel', icon: <SiLaravel />, hoverClass: 'group-hover:text-red-600' },
+      { name: 'Flutter', icon: <SiFlutter />, hoverClass: 'group-hover:text-sky-400' },
+      { name: 'Vue.js', icon: <SiVuedotjs />, hoverClass: 'group-hover:text-green-500' },
+      { name: 'Django', icon: <SiDjango />, hoverClass: 'group-hover:text-green-700' },
+      { name: 'Next.js', icon: <SiNextdotjs />, hoverClass: 'group-hover:text-[--primary]' }, // Fixed
     ],
     'Tools': [
-      { name: 'MySQL', icon: <SiMysql /> },
-      { name: 'PostgreSQL', icon: <SiPostgresql /> },
-      { name: 'Postman', icon: <SiPostman /> },
-      { name: 'GitHub', icon: <SiGithub /> },
-      { name: 'Supabase', icon: <SiSupabase /> },
+      { name: 'MySQL', icon: <SiMysql />, hoverClass: 'group-hover:text-blue-700' },
+      { name: 'PostgreSQL', icon: <SiPostgresql />, hoverClass: 'group-hover:text-indigo-700' },
+      { name: 'Postman', icon: <SiPostman />, hoverClass: 'group-hover:text-orange-500' },
+      { name: 'GitHub', icon: <SiGithub />, hoverClass: 'group-hover:text-[--primary]' }, // Fixed
+      { name: 'Supabase', icon: <SiSupabase />, hoverClass: 'group-hover:text-green-600' },
     ]
   };
 
-  const getHoverColorClass = (name) => {
-    switch (name.toLowerCase()) {
-      case 'javascript': return 'group-hover:text-yellow-400';
-      case 'php': return 'group-hover:text-indigo-600';
-      case 'python': return 'group-hover:text-blue-400';
-      case 'java': return 'group-hover:text-red-700';
-      case 'dart': return 'group-hover:text-sky-600';
-      case 'c++': return 'group-hover:text-purple-600';
-      case 'tailwind css': return 'group-hover:text-teal-400';
-      case 'laravel': return 'group-hover:text-red-600';
-      case 'flutter': return 'group-hover:text-sky-400';
-      case 'vue.js': return 'group-hover:text-green-500';
-      case 'supabase': return 'group-hover:text-green-600';
-      case 'django': return 'group-hover:text-green-700';
-      case 'next.js': return 'group-hover:text-black';
-      case 'mysql': return 'group-hover:text-blue-700';
-      case 'postgresql': return 'group-hover:text-indigo-700';
-      case 'postman': return 'group-hover:text-orange-500';
-      case 'github': return 'group-hover:text-black';
-      default: return '';
-    }
-  };
-
   return (
-    <section className="section-container py-16">
-      <h2 className="font-bold text-xl opacity-100 text-black text-opacity-100 section-heading">TECHNOLOGIES</h2>
+    <section id="technologies" className="mt-24">
+      <h2 className="text-3xl text-center font-bold mb-12 text-[--foreground]">TECHNOLOGIES</h2>
 
-      <div className="mt-8 space-y-8">
+      <div className="mt-8 space-y-12">
         {Object.keys(technologies).map((category) => (
           <div key={category}>
-            <h3 className="text-lg text-black opacity-100 text-opacity-100 mb-4 border-b border-gray-300 pb-2">
+            <h3 className="text-xl font-semibold text-[--foreground] opacity-90 mb-4 border-b border-[--subtle-border] pb-2">
               {category}
             </h3>
 
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-4">
               {technologies[category].map((tech, index) => (
                 <div
                   key={index}
-                  className="group flex flex-col items-center justify-center w-20 h-20 bg-gray-100 text-gray-400 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+                  className="group flex flex-col items-center justify-center w-24 h-24 bg-[--card-background] text-[--foreground] opacity-70 rounded-xl border border-[--subtle-border] shadow-sm hover:shadow-md hover:opacity-100 transition-all duration-300 ease-in-out"
                   title={tech.name}
                 >
-                  <div className={`text-3xl transition-colors duration-300 ${getHoverColorClass(tech.name)}`}>
+                  <div className={`text-4xl transition-colors duration-300 ${tech.hoverClass}`}>
                     {tech.icon}
                   </div>
+                  <p className="text-sm mt-2">{tech.name}</p>
                 </div>
               ))}
             </div>

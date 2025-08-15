@@ -5,21 +5,27 @@ import educationData from '../data/educationData';
 
 const EducationSection = () => {
   return (
-    <section id="education" className="section-container mt-16">
-      <h2 className="text-xl text-black opacity-100 text-opacity-100 section-heading font-bold">EDUCATION</h2> {/* Ukuran heading 2xl, sebelumnya xl */}
+    <section id="education" className="mt-24">
+      <h2 className="text-3xl text-left font-bold mb-12 text-[--foreground]">
+        Education
+      </h2>
 
-      <div className="space-y-8 mt-8">
+      <div className="space-y-8 mt-8 border-l-2 border-[--subtle-border] pl-6">
         {educationData.map((education, index) => (
-          <div key={index} className="grid grid-cols-3 gap-6">
-            <div className="col-span-1">
-              <h3 className="text-lg text-black opacity-100 text-opacity-100 font-medium">{education.degree}</h3> {/* Diubah dari text-sm ke text-base */}
-              <p className="text-lg text-gray-500">{education.period}</p> {/* Diubah dari text-xs ke text-sm */}
-              <p className="text-lg text-black opacity-100 text-opacity-100 mt-1">{education.institution}</p> {/* Diubah dari text-xs ke text-sm */}
-            </div>
-
-            <div className="col-span-2">
-              <p className="text-lg text-gray-700">{education.description}</p> {/* Diubah dari text-sm ke text-base */}
-            </div>
+          <div key={index} className="relative">
+            <div className="absolute -left-[30px] top-1.5 w-4 h-4 bg-[--primary] rounded-full"></div>
+            <h3 className="text-xl font-semibold text-[--foreground]">
+              {education.degree}
+            </h3>
+            <p className="text-md text-[--foreground] opacity-60">
+              {education.period}
+            </p>
+            <p className="text-md text-[--foreground] opacity-80 mt-1">
+              {education.institution}
+            </p>
+            <p className="mt-2 text-[--foreground] opacity-90">
+              {education.description}
+            </p>
           </div>
         ))}
       </div>

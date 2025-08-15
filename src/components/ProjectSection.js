@@ -5,40 +5,36 @@ import Link from 'next/link';
 import ProjectCard from './ProjectCard';
 import projectsData from '../data/projectsData';
 
-const ProjectSection = ({ limit = 3  }) => {
-  // Get a limited number of projects for the homepage
-  const displayProjects = projectsData.slice(0, limit);
+const ProjectSection = () => {
+  const featuredProjectTitles = ["Violie", "Olivia"];
+  
+  const displayProjects = featuredProjectTitles
+    .map(title => projectsData.find(p => p.title === title))
+    .filter(Boolean); 
   
   return (
-    <section id="project" className="mt-16 section-container">
-      <h2 className=" text-xl text-black opacity-100 text-opacity-100 font-bold section-heading">PROJECT</h2>
+    <section id="project" className="mt-24">
+      <h2 className="text-3xl text-center font-bold mb-16">Project Experience</h2>
       
-      {/* Zigzag layout for projects */}
-      <div className="mt-8 space-y-6">
-        {/* First row - left */}
-        <div className="flex rounded-lg justify-start">
-          <div className="w-3/4">
-            {displayProjects[0] && <ProjectCard project={displayProjects[0]} layout="vertical"/>}
-          </div>
-        </div>
-        
-        {/* Second row - right (if there's a second project) */}
-        {displayProjects.length > 1 && (
-          <div className="flex justify-end">
-            <div className="w-3/4">
-                <ProjectCard project={displayProjects[1]} layout="vertical" />
+      <div className="space-y-16">
+        {displayProjects.map((project, index) => (
+          <div 
+            key={project.id} 
+            className={`flex ${index % 2 !== 0 ? 'md:justify-end' : 'md:justify-start'}`}
+          >
+            <div className="w-full md:w-10/12 lg:w-3/4">
+              <ProjectCard project={project} />
             </div>
           </div>
-        )}
-        
+        ))}
       </div>
       
-      <div className="mt-6 text-center">
+      <div className="mt-16 text-center">
         <Link 
           href="/projects" 
-          className="text-lg text-black opacity-100 text-opacity-100 inline-block hover:text-gray-700 transition duration-300 ease-in-out"
+          className="text-lg font-semibold text-[--primary] hover:underline"
         >
-          see more project
+          Lihat Semua Proyek
         </Link>
       </div>
     </section>

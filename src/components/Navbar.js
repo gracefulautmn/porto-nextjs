@@ -1,13 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FileText, Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { ThemeContext } from '../context/ThemeContext';
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -17,94 +19,62 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const isActive = (href) => {
-    if (href === '/') return pathname === '/';
-    const pathPart = href.split('#')[0] || '/';
-    return pathname === pathPart;
-  };
+  const navLinks = (
+    <>
+      <Link href="/" onClick={closeMobileMenu} className={`text-lg hover:text-[--primary] transition-colors ${pathname === '/' ? 'text-[--primary] font-semibold' : ''}`}>
+        Profile
+      </Link>
+      <Link href="/#education" onClick={closeMobileMenu} className="text-lg hover:text-[--primary] transition-colors">
+        Education
+      </Link>
+      <Link href="/#project" onClick={closeMobileMenu} className="text-lg hover:text-[--primary] transition-colors">
+        Projects
+      </Link>
+    </>
+  );
 
   return (
     <header className="py-6 relative z-50">
       <div className="flex items-center justify-between">
-        <Link
-          href="/"
-          className={`font-bold text-3xl transition-all text-opacity-100 opacity-100 duration-300 text-black decoration-2 decoration-black-200 ${
-            pathname === '/' ? 'font-medium' : ''
-          }`}
-        >
+        <Link href="/" className="font-bold text-3xl text-[--foreground]">
           code with nizar
         </Link>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          {!isMobileMenuOpen && (
-            <button
-              onClick={toggleMobileMenu}
-              className="text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black-500"
-            >
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            </button>
-          )}
+        <div className="hidden md:flex items-center gap-6">
+          <nav className="flex items-center gap-6">
+            {navLinks}
+          </nav>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-[--card-background] transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
         </div>
 
-        {/* Navigation */}
-        <nav
-          className={`transition-all duration-300 ease-in-out md:flex md:items-center text-black md:space-x-6 ${
-            isMobileMenuOpen
-              ? 'fixed top-0 right-0 w-1/2 h-screen bg-white shadow-md py-10 px-6 z-50 flex flex-col space-y-6'
-              : 'hidden'
-          }`}
-        >
-          {/* Close Button */}
-          {isMobileMenuOpen && (
-            <button
-              onClick={toggleMobileMenu}
-              className="self-end text-gray-700 mb-6"
-            >
-              <X className="h-6 w-6" aria-hidden="true" />
-            </button>
-          )}
+        <div className="md:hidden">
+          <button onClick={toggleMobileMenu} aria-label="Open menu">
+            <Menu className="h-6 w-6" />
+          </button>
+        </div>
+      </div>
 
-          <Link
-            href="/"
-            onClick={closeMobileMenu}
-            className={`text-lg transition-all duration-300 hover:underline-offset-4 hover:underline decoration-2 decoration-black-200 ${
-              isActive('/') ? 'font-medium' : ''
-            }`}
+      <div className={`fixed top-0 left-0 w-full h-full bg-[--background] bg-opacity-95 backdrop-blur-sm z-50 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+        <div className="flex justify-end p-6">
+          <button onClick={toggleMobileMenu} aria-label="Close menu">
+            <X className="h-6 w-6" />
+          </button>
+        </div>
+        <nav className="flex flex-col items-center justify-center h-full -mt-16 gap-8">
+          {navLinks}
+          <button
+            onClick={toggleTheme}
+            className="p-3 mt-8 rounded-full bg-[--card-background] transition-colors"
+            aria-label="Toggle theme"
           >
-            Profile
-          </Link>
-
-          <Link
-            href="/#education"
-            onClick={closeMobileMenu}
-            className={`text-lg transition-all duration-300 hover:underline-offset-4 hover:underline decoration-2 decoration-black-200 ${
-              isActive('/#education') ? 'font-medium' : ''
-            }`}
-          >
-            Education
-          </Link>
-
-          <Link
-            href="/#project"
-            onClick={closeMobileMenu}
-            className={`text-lg transition-all duration-300 hover:underline-offset-4 hover:underline decoration-2 decoration-black-200 ${
-              isActive('/#project') ? 'font-medium' : ''
-            }`}
-          >
-            Projects
-          </Link>
-
-          {/* <a
-            href="/resume-eng.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={closeMobileMenu}
-            className="text-lg flex items-center transition-all duration-300 hover:underline-offset-4 hover:underline decoration-2 decoration-black-200"
-          >
-            <FileText size={16} className="mr-1" />
-            Resume
-          </a> */}
+            {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
+          </button>
         </nav>
       </div>
     </header>

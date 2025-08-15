@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Layout from '../../components/Layout';
-import ProjectCard from '../../components/ProjectCard';
+import ProjectCard from '../../components/ProjectCard'; 
 import projectsData from '../../data/projectsData';
 
 export default function Projects() {
@@ -15,31 +15,33 @@ export default function Projects() {
 
   return (
     <Layout>
-      <section className="section-container">
-        <h1 className="section-heading">All Projects</h1>
+      <section className="py-16">
+        <h1 className="text-4xl font-bold text-center mb-4 text-[--foreground]">
+          All Projects
+        </h1>
+        <p className="text-center text-[--foreground] opacity-70 mb-12">
+          Berikut adalah kumpulan proyek yang pernah saya kerjakan.
+        </p>
 
-        {/* Container untuk tombol kategori, flex dengan gap */}
-        <div className="flex gap-4 mt-4">
+        <div className="flex justify-center gap-6 mb-12">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              // Mengubah kelas untuk styling text-only dengan underline
-              className={`text-black hover:underline ${ // teks hitam, hover underline
+              className={`text-lg font-medium transition-colors duration-300 ${
                 selectedCategory === category
-                  ? 'underline font-semibold' // underline & lebih tebal jika terpilih
-                  : ''
+                  ? 'text-[--primary] underline underline-offset-4' // Gaya tombol aktif dengan underline
+                  : 'text-[--foreground] opacity-60 hover:opacity-100 hover:text-[--primary]' // Gaya tombol non-aktif
               }`}
             >
-              {/* Menggunakan capitalize untuk tampilan lebih baik, bisa juga toUpperCase() */}
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </button>
           ))}
         </div>
 
-        <div className="mt-8 flex flex-col gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
           {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} layout="horizontal" />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </section>

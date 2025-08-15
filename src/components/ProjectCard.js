@@ -3,63 +3,47 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FiGithub } from 'react-icons/fi';
 
-const ProjectCard = ({ project, layout = 'vertical', isPlaceholder = false }) => {
-  if (isPlaceholder) {
-    return (
-      <div className="bg-light-gray p-2 w-full">
-        <div className="relative w-full aspect-video bg-gray-200 flex items-center justify-center">
-          <div className="w-full h-0.5 bg-gray-300 rotate-45 absolute"></div>
-          <div className="w-full h-0.5 bg-gray-300 -rotate-45 absolute"></div>
-        </div>
-      </div>
-    );
-  }
-
-  // Default vertical layout
-return (
-  <div className="bg-light-gray p-2 w-full">
-    <div className={`relative w-full aspect-video ${project.color}`}> {/* Hapus overflow-hidden */}
-      <Image
-        src={project.image}
-        alt={project.title}
-        fill
-        style={{ objectFit: 'cover' }}
-        className="rounded-lg"
-      />
-    </div>
-    <div className="mt-2">
-      <Link href={project.link} target="_blank" className="text-xl text-black font-semibold hover:underline">
-        {project.title}
-      </Link>
-      <p className="text-lg text-gray-500">{project.description}</p>
-    </div>
-  </div>
-);
-
-// Horizontal layout
-if (layout === 'horizontal') {
+const ProjectCard = ({ project, isReversed = false }) => {
   return (
-    <div className="flex bg-light-gray overflow-hidden rounded-lg shadow-md">
-      <div className={`relative w-[40%] h-48 ${project.color}`}> {/* Hapus overflow-hidden */}
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          style={{ objectFit: 'cover' }}
-          className="rounded-lg"
-        />
-      </div>
-      <div className="p-4 w-[60%] flex flex-col justify-center">
-        <Link href={project.link} target="_blank" className="text-lg font-semibold hover:underline">
-          {project.title}
+    <div className="group grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-16">
+      
+      <div className={`md:col-span-7 rounded-lg overflow-hidden transition-all duration-300 ${isReversed ? 'md:order-last' : ''}`}>
+        <Link href={project.link} target="_blank" rel="noopener noreferrer">
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={800}
+            height={450}
+            style={{ objectFit: 'cover' }}
+            className="rounded-lg transition-transform duration-300 group-hover:scale-105"
+          />
         </Link>
-        <p className="text-sm text-gray-600">{project.description}</p>
+      </div>
+
+      <div className={`md:col-span-5 ${isReversed ? 'md:text-right' : 'md:text-left'}`}>
+        <h3 className="text-2xl font-bold text-[--primary] mb-2">{project.title}</h3>
+        <div className="bg-[--card-background] p-4 rounded-lg shadow-sm ">
+          <p className="text-[--foreground] opacity-80 text-base text-left">{project.description}</p>
+        </div>
+        
+        <div className={`flex flex-wrap gap-2 my-4 ${isReversed ? 'md:justify-end' : 'md:justify-start'}`}>
+          {project.technologies?.map((tech, index) => (
+            <span key={index} className="bg-[--primary] bg-opacity-10 text-[--primary] text-sm font-semibold px-3 py-1 rounded-full">
+              {tech}
+            </span>
+          ))}
+        </div>
+        
+        <div className={`flex items-center gap-4 mt-4 ${isReversed ? 'md:justify-end' : 'md:justify-start'}`}>
+          <Link href={project.link} target="_blank" rel="noopener noreferrer" className="text-[--foreground] hover:text-[--primary] transition-colors" title="Source Code">
+            <FiGithub size={24} />
+          </Link>
+        </div>
       </div>
     </div>
   );
-}
-  
 };
 
 export default ProjectCard;

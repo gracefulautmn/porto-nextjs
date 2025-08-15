@@ -5,6 +5,7 @@ const projectsData = [
     description: "An online learning website that provides a variety of quality courses to support skill development in the digital era. With a user-friendly interface, learners can access learning materials anytime and anywhere. Supported by experienced mentors and curriculum relevant to industry needs.",
     image: "/images/elitera.png",
     color: "bg-accent-red",
+    technologies: ["Laravel", "Javascript", "Tailwind CSS", "Midtrans"],
     category: "web",
     link: "https://github.com/nizarafham/elitera"
   },
@@ -13,7 +14,8 @@ const projectsData = [
     title: "Violie",
     description: "Voting website for the election of the chairman and deputy of the student association",
     image: "/images/violie.png",
-    color: "bg-accent-red",
+    color: "bg-accent-red", 
+    technologies: ["Next.js", "Javascript","Tailwind CSS", "Supabase", "PostgreSQL"],
     category: "web",
     link: "https://github.com/gracefulautmn/himpunan-votingapp"
   },
@@ -24,6 +26,7 @@ const projectsData = [
     image: "/images/kaeses.png",
     color: "bg-accent-red",
     category: "web",
+    technologies: ["HTML", "CSS",],
     link: "https://kaeses.vercel.app/"
   },
   {
@@ -33,6 +36,7 @@ const projectsData = [
     image: "/images/pocketbook.png",
     color: "bg-accent-red",
     category: "mobile",
+    technologies: ["Flutter", "SharedPreferences"],
     link: "https://github.com/nizarafham/manage-money"
   },
   {
@@ -42,6 +46,7 @@ const projectsData = [
     image: "/images/finsweet.png",
     color: "bg-accent-red",
     category: "web",
+    technologies: ["Laravel",],
     link: "https://github.com/nizarafham/tht-web-finsweet"
   },
   {
@@ -51,6 +56,7 @@ const projectsData = [
     image: "/images/olivia.png",
     color: "bg-accent-red",
     category: "mobile",
+    technologies: ["Flutter", "BLoc", "Supabase"],
     link: "https://github.com/gracefulautmn/olivia"
   },
   {
@@ -60,6 +66,17 @@ const projectsData = [
     image: "/images/ibmi.png",
     color: "bg-accent-red",
     category: "mobile",
+    technologies: ["Flutter", "SharedPreferences"],
+    link: "https://github.com/nizarafham/kuliner-ai"
+  },
+  {
+    id: 8,
+    title: "Kuliner AI",
+    description: "An interactive web platform that utilizes artificial intelligence technology to preserve and popularize Indonesian cuisine. The application allows users to quickly and personally find traditional Indonesian recipes based on available ingredients or taste preferences.",
+    image: "/images/kuliner-ai.png",
+    color: "bg-accent-red",
+    category: "web",
+    technologies: ["Next.js", "Typescript","Tailwind", "Supabase", "Gemini API"],
     link: "https://github.com/nizarafham/ibmi-app"
   },
 ];
