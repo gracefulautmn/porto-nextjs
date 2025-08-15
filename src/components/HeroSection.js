@@ -38,10 +38,10 @@ const HeroSection = () => {
           </p>
           <div className="flex justify-center md:justify-start gap-4">
           <Link href="#project" className="px-6 py-3  font-semibold rounded-lg hover:bg-[--card-background] transition-opacity">
-              Lihat Proyek
+              See Project
             </Link>
             <Link href="#contact" className="px-6 py-3 border border-[--subtle-border] font-semibold rounded-lg hover:bg-[--card-background] transition-colors">
-              Hubungi Saya
+              Contact Me
             </Link>
           </div>
         </div>

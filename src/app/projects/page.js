@@ -20,7 +20,7 @@ export default function Projects() {
           All Projects
         </h1>
         <p className="text-center text-[--foreground] opacity-70 mb-12">
-          Berikut adalah kumpulan proyek yang pernah saya kerjakan.
+          Here is a collection of projects I have worked on.
         </p>
 
         <div className="flex justify-center gap-6 mb-12">
@@ -30,8 +30,8 @@ export default function Projects() {
               onClick={() => setSelectedCategory(category)}
               className={`text-lg font-medium transition-colors duration-300 ${
                 selectedCategory === category
-                  ? 'text-[--primary] underline underline-offset-4' // Gaya tombol aktif dengan underline
-                  : 'text-[--foreground] opacity-60 hover:opacity-100 hover:text-[--primary]' // Gaya tombol non-aktif
+                  ? 'text-[--primary] underline underline-offset-4' 
+                  : 'text-[--foreground] opacity-60 hover:opacity-100 hover:text-[--primary]' 
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}

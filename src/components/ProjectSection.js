@@ -34,7 +34,7 @@ const ProjectSection = () => {
           href="/projects" 
           className="text-lg font-semibold text-[--primary] hover:underline"
         >
-          Lihat Semua Proyek
+          See More Projects
         </Link>
       </div>
     </section>
