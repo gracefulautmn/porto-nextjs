@@ -1,11 +1,24 @@
-import { Inter } from 'next/font/google';
+import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import '../styles/globals.css';
-import { ThemeProvider } from '../context/ThemeContext';
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-sans', 
+  variable: '--font-inter',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['500', '600', '700'],
+  variable: '--font-space-grotesk',
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['500', '600', '700'],
+  variable: '--font-jetbrains-mono',
 });
 
 export const metadata = {
@@ -15,11 +28,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body>
-        <ThemeProvider> 
-          {children}
-        </ThemeProvider>
+    <html
+      lang="en"
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable}`}
+    >
+      <body className="bg-surface-container-lowest font-body-md text-on-surface antialiased">
+        {children}
       </body>
     </html>
   );

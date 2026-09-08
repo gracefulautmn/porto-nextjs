@@ -2,36 +2,53 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { FaInstagram, FaGithub, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
+import { brutalBtn, focusRing } from '../lib/brutalist';
+import profileData from '../data/profileData';
+
+const socialLinks = [
+  { label: '[GITHUB]', href: profileData.social.github },
+  { label: '[LINKEDIN]', href: profileData.social.linkedin },
+  { label: '[INSTAGRAM]', href: profileData.social.instagram },
+  { label: '[WHATSAPP]', href: profileData.social.whatsapp },
+];
 
 const Footer = () => {
   return (
-    <footer className="w-full mt-24 border-t border-[--subtle-border] bg-[--card-background]">
-      <div className="w-full px-4 lg:w-1/2 mx-auto py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          
-          <div className="text-center md:text-left">
-            <p className="text-sm text-[--foreground] opacity-70">
-              © {new Date().getFullYear()} Nizar Afham. All Rights Reserved.
+    <footer className="w-full border-t-2 border-on-surface bg-surface-container-lowest">
+      <div className="max-w-[1280px] mx-auto px-space-md lg:px-space-xl py-space-2xl">
+        <div className="flex flex-col gap-space-xl md:flex-row md:items-start md:justify-between">
+
+          <div>
+            <Link
+              href="/"
+              className="font-display-xl text-headline-sm uppercase text-on-surface"
+            >
+              nizar.dev
+            </Link>
+            <p className="mt-space-2xs font-label-mono text-label-mono uppercase text-on-surface-variant">
+              {profileData.title}
             </p>
           </div>
 
-          <div className="flex items-center gap-5">
-            <Link href="https://instagram.com/ny.zaru" target="_blank" rel="noopener noreferrer" className="text-[--foreground] opacity-70 hover:opacity-100 hover:text-[--primary] transition-all">
-              <FaInstagram size={24} />
-            </Link>
-            <Link href="https://github.com/nizarafham" target="_blank" rel="noopener noreferrer" className="text-[--foreground] opacity-70 hover:opacity-100 hover:text-[--primary] transition-all">
-              <FaGithub size={24} />
-            </Link>
-            <Link href="https://wa.me/+6281218945093" target="_blank" rel="noopener noreferrer" className="text-[--foreground] opacity-70 hover:opacity-100 hover:text-[--primary] transition-all">
-              <FaWhatsapp size={24} />
-            </Link>
-            <Link href="https://linkedin.com/in/nizarafhamaflaha" target="_blank" rel="noopener noreferrer" className="text-[--foreground] opacity-70 hover:opacity-100 hover:text-[--primary] transition-all">
-              <FaLinkedin size={24} />
-            </Link>
-          </div>
+          <nav className="flex flex-wrap gap-space-sm">
+            {socialLinks.map(({ label, href }) => (
+              <Link
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${brutalBtn} ${focusRing} font-label-mono text-label-mono uppercase px-space-md py-space-xs bg-surface-container-lowest text-on-surface`}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
 
         </div>
+
+        <p className="mt-space-2xl font-label-mono text-label-mono uppercase text-on-surface-variant">
+          © {new Date().getFullYear()} NIZAR AFHAM AFLAHA. ALL RIGHTS RESERVED.
+        </p>
       </div>
     </footer>
   );

@@ -5,25 +5,24 @@ import educationData from '../data/educationData';
 
 const EducationSection = () => {
   return (
-    <section id="education" className="mt-24">
-      <h2 className="text-3xl text-left font-bold mb-12 text-[--foreground]">
+    <section id="education" className="mt-space-4xl border-t-2 border-on-surface pt-space-xl">
+      <h2 className="font-headline-md text-headline-md uppercase text-on-surface mb-space-xl">
         Education
       </h2>
 
-      <div className="space-y-8 mt-8 border-l-2 border-[--subtle-border] pl-6">
+      <div>
         {educationData.map((education, index) => (
-          <div key={index} className="relative">
-            <div className="absolute -left-[30px] top-1.5 w-4 h-4 bg-[--primary] rounded-full"></div>
-            <h3 className="text-xl font-semibold text-[--foreground]">
-              {education.degree}
-            </h3>
-            <p className="text-md text-[--foreground] opacity-60">
+          <div
+            key={index}
+            className="grid md:grid-cols-12 gap-space-md border-b-2 border-on-surface py-space-lg hover:bg-surface-container-low transition-colors"
+          >
+            <p className="md:col-span-3 font-label-mono text-label-mono font-bold uppercase text-on-surface">
               {education.period}
             </p>
-            <p className="text-md text-[--foreground] opacity-80 mt-1">
-              {education.institution}
-            </p>
-            <p className="mt-2 text-[--foreground] opacity-90">
+            <h3 className="md:col-span-5 font-headline-sm text-headline-sm text-on-surface">
+              {education.institution || education.degree}
+            </h3>
+            <p className="md:col-span-4 font-label-mono text-label-mono text-on-surface-variant">
               {education.description}
             </p>
           </div>

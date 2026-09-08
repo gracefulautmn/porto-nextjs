@@ -1,82 +1,78 @@
 'use client';
 
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { ThemeContext } from '../context/ThemeContext';
+import { Menu, X } from 'lucide-react';
+import { monoChip, focusRing } from '../lib/brutalist';
+
+const NAV_ITEMS = [
+  { label: '[Projects]', href: '/projects' },
+  { label: '[Kontak]', href: '/#contact' },
+];
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  const toggleMobileMenu = () => setIsMobileMenuOpen((open) => !open);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+  const isActive = (href) => {
+    const path = href.split('#')[0] || '/';
+    return pathname === path;
   };
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
+  const renderNavLink = (item, extraClasses = '') => {
+    const active = isActive(item.href);
+    return (
+      <Link
+        key={item.href}
+        href={item.href}
+        onClick={closeMobileMenu}
+        aria-current={active ? 'page' : undefined}
+        className={`${monoChip} ${focusRing} ${active ? 'bg-primary-container' : ''} ${extraClasses}`}
+      >
+        {item.label}
+      </Link>
+    );
   };
-
-  const navLinks = (
-    <>
-      <Link href="/" onClick={closeMobileMenu} className={`text-lg hover:text-[--primary] transition-colors ${pathname === '/' ? 'text-[--primary] font-semibold' : ''}`}>
-        Profile
-      </Link>
-      <Link href="/#education" onClick={closeMobileMenu} className="text-lg hover:text-[--primary] transition-colors">
-        Education
-      </Link>
-      <Link href="/#project" onClick={closeMobileMenu} className="text-lg hover:text-[--primary] transition-colors">
-        Projects
-      </Link>
-    </>
-  );
 
   return (
-    <header className="py-6 relative z-50">
-      <div className="flex items-center justify-between">
-        <Link href="/" className="font-bold text-3xl text-[--foreground]">
-          code with nizar
+    <header className="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest border-b-2 border-on-surface">
+      <div className="h-20 max-w-[1280px] mx-auto px-space-md lg:px-space-xl flex items-center justify-between">
+        <Link
+          href="/"
+          onClick={closeMobileMenu}
+          className={`font-display-xl text-2xl uppercase text-on-surface ${focusRing}`}
+        >
+          nizar.dev
         </Link>
 
-        <div className="hidden md:flex items-center gap-6">
-          <nav className="flex items-center gap-6">
-            {navLinks}
-          </nav>
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-[--card-background] transition-colors"
-            aria-label="Toggle theme"
-          >
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
-        </div>
+        <nav className="hidden md:flex items-center gap-space-md">
+          {NAV_ITEMS.map((item) => renderNavLink(item))}
+        </nav>
 
         <div className="md:hidden">
-          <button onClick={toggleMobileMenu} aria-label="Open menu">
-            <Menu className="h-6 w-6" />
+          <button
+            type="button"
+            onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+            className={`border-2 border-on-surface bg-surface-container-lowest text-on-surface p-2 ${focusRing}`}
+          >
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
 
-      <div className={`fixed top-0 left-0 w-full h-full bg-[--background] bg-opacity-95 backdrop-blur-sm z-50 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
-        <div className="flex justify-end p-6">
-          <button onClick={toggleMobileMenu} aria-label="Close menu">
-            <X className="h-6 w-6" />
-          </button>
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t-2 border-on-surface bg-surface-container-lowest">
+          <nav className="max-w-[1280px] mx-auto px-space-md py-space-md flex flex-col gap-space-sm">
+            {NAV_ITEMS.map((item) => renderNavLink(item, 'w-full text-center'))}
+          </nav>
         </div>
-        <nav className="flex flex-col items-center justify-center h-full -mt-16 gap-8">
-          {navLinks}
-          <button
-            onClick={toggleTheme}
-            className="p-3 mt-8 rounded-full bg-[--card-background] transition-colors"
-            aria-label="Toggle theme"
-          >
-            {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
-          </button>
-        </nav>
-      </div>
+      )}
     </header>
   );
 };
