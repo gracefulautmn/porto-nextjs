@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { brutalBtn, focusRing } from '../lib/brutalist';
 import profileData from '../data/profileData';
+import Image from 'next/image';
 
 const socialLinks = [
   { label: '[GITHUB]', href: profileData.social.github },
@@ -21,8 +22,16 @@ const Footer = () => {
           <div>
             <Link
               href="/"
-              className="font-display-xl text-headline-sm uppercase text-on-surface"
+              className="flex items-center gap-space-sm font-display-xl text-headline-sm uppercase text-on-surface"
             >
+              <Image
+                src="/logo-nd.png"
+                alt="nizar.dev logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
+                priority
+              />
               nizar.dev
             </Link>
             <p className="mt-space-2xs font-label-mono text-label-mono uppercase text-on-surface-variant">

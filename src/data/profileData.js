@@ -1,6 +1,6 @@
 const profileData = {
   name: "Nizar",
-  bio: "I'm a Computer Science graduate from Universitas Pertamina with a passion for full-stack web development. I enjoy working across the entire stack—crafting interactive frontends with React and TypeScript, and architecting reliable backends using Go and PostgreSQL. I have experience shipping production-level features, both as a Junior Software Developer at my university and during my time at PT Pupuk Indonesia. I thrive in Agile teams and focus on building systems that are not just functional, but also robust. By applying MVC and Clean Architecture principles, I ensure the codebases I touch remain scalable and easy to maintain.",
+  bio: "I'm a Computer Science graduate from Universitas Pertamina with a passion for fullstack web development. I enjoy working across the entire stack crafting interactive frontends with React and TypeScript, and architecting reliable backends using Go and PostgreSQL. I thrive in Agile teams and focus on building systems that are not just functional, but also robust. By applying MVC and Clean Architecture principles, I ensure the codebases I touch remain scalable and easy to maintain.",
   title: "FULL-STACK DEVELOPER",
   contact: {
     email: "nizarafham9@gmail.com",

@@ -27,13 +27,13 @@ const HeroSection = () => {
               href="#projects"
               className={`${brutalBtnPrimary} font-headline-sm text-label-caps uppercase px-space-xl py-space-md font-bold`}
             >
-              Lihat Project
+              View Project
             </Link>
             <Link
               href="#contact"
               className={`${brutalBtnGhost} font-headline-sm text-label-caps uppercase px-space-xl py-space-md font-bold`}
             >
-              Hubungi
+              Contact
             </Link>
           </div>
         </div>

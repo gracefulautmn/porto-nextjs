@@ -24,6 +24,11 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata = {
   title: 'Nizar Afham | Portfolio',
   description: 'Portfolio website for Nizar Afham, a Full-Stack and Mobile Developer.',
+  icons: {
+    icon: '/logo-nd.png',
+    shortcut: '/logo-nd.png',
+    apple: '/logo-nd.png',
+  },
 };
 
 export default function RootLayout({ children }) {
