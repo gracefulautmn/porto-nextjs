@@ -9,7 +9,7 @@ import { monoChip, focusRing } from '../lib/brutalist';
 
 const NAV_ITEMS = [
   { label: '[CV]', href: '/CV - NIZAR AFHAM.pdf', external: true },
-  { label: '[Kontak]', href: '/#contact' },
+  { label: '[Contact]', href: '/#contact' },
 ];
 
 const Navbar = () => {

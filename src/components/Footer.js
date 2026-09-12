@@ -10,7 +10,7 @@ const socialLinks = [
   { label: '[GITHUB]', href: profileData.social.github },
   { label: '[LINKEDIN]', href: profileData.social.linkedin },
   { label: '[INSTAGRAM]', href: profileData.social.instagram },
-  { label: '[WHATSAPP]', href: profileData.social.whatsapp },
+  // { label: '[WHATSAPP]', href: profileData.social.whatsapp },
 ];
 
 const Footer = () => {

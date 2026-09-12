@@ -10,7 +10,7 @@ const profileData = {
     github: "https://github.com/nizarafham",
     linkedin: "https://linkedin.com/in/nizarafhamaflaha",
     instagram: "https://instagram.com/ny.zaru",
-    whatsapp: "https://wa.me/+6281218945093",
+    // whatsapp: "https://wa.me/+",
   },
   techGroups: {
     coreStack: [
