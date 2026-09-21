@@ -79,6 +79,16 @@ const projectsData = [
     technologies: ["Next.js", "Typescript","Tailwind", "Supabase", "Gemini API"],
     link: "https://github.com/nizarafham/ibmi-app"
   },
+  {
+    id: 9,
+    title: "badgHRIS",
+    description: "An HRIS (Human Resource Information System) web application that streamlines HR operations in one place. It covers payroll processing, leave management, attendance tracking, employee management, and automatic payslip generation, helping companies handle their workforce administration more efficiently.",
+    image: "/images/hris.png",
+    color: "bg-accent-red",
+    category: "web",
+    technologies: ["Svelte", "Tailwind CSS", "PostgreSQL"],
+    link: "https://github.com/nizarafham/badg-hris"
+  },
 ];
 
 export default projectsData;
